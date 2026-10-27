@@ -1,0 +1,273 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #303030;
+    border-bottom: 1px solid #eaeaea;  /* Тонкая линия-разделитель снизу */
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    font-family: sans-serif;
+  }
+  
+  .nav a {
+    margin-left: 70px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: sans-serif;
+  }
+  
+  .nav a:hover {
+    color: #000000;
+  }
+  .about {
+    padding: 60px 40px;
+    background-color: #c9c9c9;
+    left: 0;
+    right: 0;
+  }
+  
+  .about-container {
+    display: flex;
+    align-items: center; /* Выравнивает фото и текст по центру по вертикали */
+    gap: 50px;           /* Расстояние между фото и текстом */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 20px;
+  }
+  
+  .about-image img {
+    width: 300px;
+    height: 350px;
+    object-fit: cover;   /* Чтобы фото заполняло блок и не искажалось */
+    border-radius: 8px;  легкие скругления углов (по желанию)
+  }
+  
+  .about-text h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2b2b2b;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+  }
+  
+  .about-text p {
+    font-size: 15px;
+    line-height: 1.6;    /* Межстрочный интервал для читаемости */
+    color: #333333;
+    margin-bottom: 15px;
+    font-family: sans-serif;
+    background-color: #eaeaea;
+    padding: 25px;
+    border-radius: 15px;
+  }
+  .hero {
+    background-color: #c9c9c9;
+    padding-top: 140px;
+    padding-bottom: 35px;
+    padding-left: 40px;
+    padding-right: 40px ;
+
+  }
+  .hero-container {
+
+  }
+  .hero-subtitle {
+    font-size: 15px;
+    line-height: 1;    /* Межстрочный интервал для читаемости */
+    color: #333333;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+    margin-top: 100px;
+
+  }
+  .hero-title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2b2b2b;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    margin-top: 20px;
+
+  }
+/* Общая секция контактов */
+.contact {
+    background-color: #c9c9c9; /* Светлый фон всей секции */
+    padding: 80px 40px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 140px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  /* Контейнер для центрирования */
+  .contact-container {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+  
+  /* Заголовок "Let's Connect" */
+  .contact h2 {
+    font-family: sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #2b2b2b;
+    margin-bottom: 8px;
+    margin-top: 30px;
+  }
+  
+  /* Описание под заголовком */
+  .contact-subtitle {
+    font-size: 17px;
+    color: #555555;
+    margin-bottom: 30px;
+    font-family: sans-serif;
+    
+
+  }
+  
+  /* Рамка вокруг формы */
+  .contact-form fieldset {
+    border: 1px solid #cbd5e1;
+    border-radius: 15px;
+    padding: 50px 30px;
+    background-color: #ffffff; /* Белый фон внутри рамки */
+  }
+  
+  /* Надпись "Contact form" прямо на рамке */
+  .contact-form legend {
+    font-size: 20px;
+    color: #475569;
+    padding: 0 10px;
+    margin-top: 5px;
+    font-family: sans-serif;
+  }
+  
+  /* Подписи к полям ввода */
+  .contact-form label {
+    display: block;
+    font-size: 16px;
+    color: #334155;
+    margin-bottom: 6px;
+    margin-top: 16px;
+    font-family: sans-serif;
+  }
+  
+  .contact-form label:first-of-type {
+    margin-top: 0;
+    font-family: sans-serif;
+  }
+  
+  /* Поля ввода (инпуты, селект, текстовое поле) */
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    padding: 16px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    outline: none;
+    color:#333333;
+  }
+  
+  /* Эффект при клике на поле */
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    border-color: #64748b;
+  }
+  /* Стили для кнопок */
+.form-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  
+  .btn-send {
+    background-color: #9e9e9e;
+    color:#a1a1a1
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .btn-send:hover {
+    background-color: #2b2b2b;
+  }
+  
+  .btn-clear {
+    background-color: #2b2b2b; /* Синий цвет кнопки */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+
+  }
+  .btn-clear:hover {
+    background-color:#9e9e9e
+  }
+  
+  /* Подпись под кнопками */
+  .form-note {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 12px;
+    margin-bottom: 50px;
+  }
+  
+  /* Стили для футера */
+  .footer {
+    margin-top: 60px;
+    padding: 40px;
+    background-color: #c9c9c9;
+    
+    width: 100%;
+    box-sizing: border-box;
+    
+  }
+  
+  .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: #64748b;
+    font-family:  sans-serif;;
+  }
+  
+  /* Ссылка "Back to top" */
+  .back-to-top {
+    color: #363636;
+    text-decoration: none;
+    font-weight: 500;
+    width: fit-content;
+    font-family: sans-serif;
+    font-sizeS: 15px;S
+  }
+  
+  .back-to-top:hover {
+    text-decoration: underline;
+  }
