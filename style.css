@@ -28,8 +28,12 @@
   }
   
   .nav a:hover {
-    color: #000000;
+    font-size: 17px;
+    font-family: sans-serif;
+
   }
+
+  
   .about {
     padding: 60px 40px;
     background-color: #c9c9c9;
@@ -48,7 +52,7 @@
   }
   
   .about-image img {
-    width: 300px;
+    width: 100%;
     height: 350px;
     object-fit: cover;   /* Чтобы фото заполняло блок и не искажалось */
     border-radius: 8px;  легкие скругления углов (по желанию)
@@ -258,16 +262,175 @@
     font-family:  sans-serif;;
   }
   
-  /* Ссылка "Back to top" */
-  .back-to-top {
-    color: #363636;
-    text-decoration: none;
-    font-weight: 500;
-    width: fit-content;
-    font-family: sans-serif;
-    font-sizeS: 15px;S
+ 
+  .scroll-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: #242424;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(0,0,0,.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
   }
   
-  .back-to-top:hover {
-    text-decoration: underline;
+  .scroll-top:hover { background: #242424; }
+  
+  .scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
+
+  /* Мобильные стили (экраны 768px и меньше) */
+@media screen and (max-width: 768px) {
+  
+  /* 1. Настройка шапки */
+  
+
+  .nav {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .nav a {
+    margin-left: 0; /* Убираем гигантский отступ в 70px */
+    font-size: 14px;
+  }
+
+  /* 2. Блок "About" — ставим фото над текстом */
+  .about-container {
+    flex-direction: column; /* Элементы встают друг под друга */
+    align-items: center;
+    gap: 20px;
+    padding: 20px 15px;
+  }
+
+  /* 3. Правильные размеры фото */
+  .about-image, 
+  .about-image img {
+    width: 100%;
+    max-width: 280px; /* Чтобы фото не расплывалось во всю ширину */
+    height: auto;     /* Пропорции картинки не будут искажаться */
+  }
+
+  /* 4. Центрируем заголовок */
+  .about-text h1 {
+    text-align: center;
+    font-size: 24px;
+  }
+}
+  
+nav { display: flex; gap: 10px; align-items: center; }
+
+.menu { display: flex; gap: 14px; }
+.menu a { text-decoration: none; color: #ffffff; padding: 8px 10px; border-radius: 8px; transition: background-color .25s; }
+.menu a:hover { background: rgba(255, 255, 255, 0.06); }
+
+/* Гамбургер по умолчанию скрыт на десктопе */
+.hamburger {
+  width: 42px; height: 42px; border-radius: 10px;
+   display: none; place-items: center;
+  background: transparent; cursor: pointer; transition: border-color .2s ease;
+}
+.hamburger-bars {
+   position: relative;
+   width: 20px;
+   height: 14px;
+  }
+.bar { 
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px; 
+  background: currentColor;
+  border-radius: 2px;
+}
+.bar:nth-child(1) {
+  top: 0;
+}
+.bar:nth-child(2) {
+  top: 6px;
+}
+.bar:nth-child(3) {
+  bottom: 0;
+}
+
+
+/* Мобайл: скрываем горизонтальное меню до открытия */
+@media (max-width: 768px) {
+  .hamburger { display: grid; }
+  .menu {
+    display: none;
+    position: absolute; left: 0; right: 0; top: 60px;
+    background: #fff;  border-radius: 12px;
+    flex-direction: column; padding: 10px;
+  }
+  .menu.open { display: flex;
+    animation: fadeIn .25s ease forwards;
+  }
+}
+
+/* На экранах шире 768px кнопка гамбургера скрыта */
+@media screen and (min-width: 769px) {
+  .hamburger {
+      display: none !important;
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        display: none;
+        place-items: center;
+        background: transparent;
+        border: none; /* Убирает серую границу */
+        cursor: pointer;
+        color: #ffffff; /* Делает полоски белыми */
+        transition: border-color .2s ease;
+  }
+}
+
+/* На мобильных экранах (до 768px) */
+@media screen and (max-width: 768px) {
+  /* Показываем кнопку гамбургера */
+  .hamburger {
+      display: flex !important;
+      width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        display: none;
+        place-items: center;
+        background: transparent;
+        border: none; /* Убирает серую границу */
+        cursor: pointer;
+        color: #ffffff; /* Делает полоски белыми */
+        transition: border-color .2s ease;
+  }
+
+  /* Скрываем текстовое меню по умолчанию */
+  .menu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      
+      left: 0;
+      right: 0;
+      background-color: #303030;
+      flex-direction: column;
+      padding: 10px;
+      text-align: center;
+      gap: 15px;
+  }
+
+  /* Когда меню открывается через JS (добавляется класс open) */
+  .menu.open {
+      display: flex;
+  }
+}
