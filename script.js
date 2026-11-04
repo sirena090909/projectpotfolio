@@ -1,46 +1,26 @@
 // Кнопка «Наверх»
 const scrollTopBtn = document.getElementById('scrollTopBtn');
-
-// Порог появления (в пикселях)
-const SHOW_AFTER = 300;
-
-// Следим за прокруткой и показываем/скрываем кнопку
 window.addEventListener('scroll', () => {
-  if (window.scrollY > SHOW_AFTER) {
-    scrollTopBtn.classList.add('show');
-  } else {
-    scrollTopBtn.classList.remove('show');
-  }
+  scrollTopBtn.classList.toggle('show', window.scrollY > 300);
 });
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// Плавно прокручиваем к началу страницы
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
+// Бургер-меню
 const burger = document.getElementById('hamburger');
 const menu = document.getElementById('menu');
 
-burger.addEventListener('click', () => {
-  const expanded = burger.getAttribute('aria-expanded') === 'true';
-  burger.setAttribute('aria-expanded', String(!expanded));
-  menu.classList.toggle('open');
-});
+const toggleMenu = (open) => {
+  const isOpen = open ?? !menu.classList.contains('open');
+  menu.classList.toggle('open', isOpen);
+  burger.setAttribute('aria-expanded', isOpen);
+};
 
-// Закрыть меню по клику на пункт (на мобиле)
+burger.addEventListener('click', () => toggleMenu());
+
 menu.addEventListener('click', (e) => {
-  if (e.target.tagName === 'A' && window.matchMedia('(max-width: 768px)').matches) {
-    menu.classList.remove('open');
-    burger.setAttribute('aria-expanded', 'false');
-  }
+  if (e.target.tagName === 'A' && window.innerWidth <= 768) toggleMenu(false);
 });
 
-// Закрыть по Esc
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
-    burger.setAttribute('aria-expanded', 'false');
-    menu.classList.remove('open');
-  }
-});
- 
-
+  if (e.key === 'Escape') toggleMenu(false);
+});ы
