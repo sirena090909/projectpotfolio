@@ -23,4 +23,4 @@ menu.addEventListener('click', (e) => {
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') toggleMenu(false);
-});ы
+});
